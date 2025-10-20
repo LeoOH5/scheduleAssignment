@@ -2,12 +2,13 @@ package com.example.schedule.controller;
 
 import com.example.schedule.dto.CreateScheduleRequest;
 import com.example.schedule.dto.CreateScheduleResponse;
+import com.example.schedule.dto.GetScheduleResponse;
+import com.example.schedule.entity.Schedule;
 import com.example.schedule.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,4 +20,13 @@ public class ScheduleController {
         return scheduleService.createSchedule(request);
     }
 
+    @GetMapping("/schedules/{userName}")
+    public GetScheduleResponse getSchedule(@PathVariable String userName){
+        return scheduleService.getSchedule(userName);
+    }
+
+    @GetMapping("/schedules")
+    public List<GetScheduleResponse> findAll(){
+        return scheduleService.getAll();
+    }
 }
