@@ -5,9 +5,12 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Entity
-@Table(name = "users")
+@Table(name = "schedules")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Schedule extends BaseEntity{
     @Id
@@ -26,6 +29,9 @@ public class Schedule extends BaseEntity{
     @Column(unique = true, nullable = false)
     private String userName;
     private String password;
+
+    @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
 
     public void update(String title, String userName){
         this.title = title;

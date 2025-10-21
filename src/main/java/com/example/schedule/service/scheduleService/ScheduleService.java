@@ -1,8 +1,8 @@
-package com.example.schedule.service;
+package com.example.schedule.service.scheduleService;
 
-import com.example.schedule.dto.*;
+import com.example.schedule.dto.scheduleDto.*;
 import com.example.schedule.entity.Schedule;
-import com.example.schedule.repository.ScheduleRepository;
+import com.example.schedule.repository.scheduleRepository.ScheduleRepository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;

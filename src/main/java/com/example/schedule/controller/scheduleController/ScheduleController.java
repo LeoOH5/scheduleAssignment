@@ -1,8 +1,7 @@
-package com.example.schedule.controller;
+package com.example.schedule.controller.scheduleController;
 
-import com.example.schedule.dto.*;
-import com.example.schedule.entity.Schedule;
-import com.example.schedule.service.ScheduleService;
+import com.example.schedule.dto.scheduleDto.*;
+import com.example.schedule.service.scheduleService.ScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +28,7 @@ public class ScheduleController {
     }
 
     @PutMapping("/schedules/{userName}")
-    public UpdateScheduleResponse updateSchedule(@PathVariable String userName,@RequestBody UpdateScheduleRequest request){
+    public UpdateScheduleResponse updateSchedule(@PathVariable String userName, @RequestBody UpdateScheduleRequest request){
         return scheduleService.updateSchedule(userName,request);
     }
 
